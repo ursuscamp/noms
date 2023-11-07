@@ -1,7 +1,10 @@
-NOMs are the basic specification building block for the Nomen protocol. It's modeled after the [NIP](https://github.com/nostr-protocol/nips) system, since Nomen is intended to be a Nostr-native protocol.
+# Nomen NOMs
 
-NOM is not an acronym, it is short for "Nomen", and matchces the protocol tag used in on-chain `OP_RETURN` outputs.
+These documents present proposed standards for Nomen implementations. It's modeled after the [NIP](https://github.com/nostr-protocol/nips) system, since Nomen is intended to be a Nostr-native protocol.
 
-[NOM-01: Protocol v0](nom-01.md)
-[NOM-02: Protocol v1](nom-02.md)
-[NOM-03: Recognized record pairs](nom-03.md)
+
+| #               | Description             |                          |
+|-----------------|-------------------------|--------------------------|
+| [01](nom-01.md) | Protocol v0             | `mandatory` `deprecated` |
+| [02](nom-02.md) | Protocol v1             | `mandatory`              |
+| [03](nom-03.md) | Recognized record pairs |                          |
