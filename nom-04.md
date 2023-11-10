@@ -6,7 +6,7 @@ Nomen indexers may provide their data in different ways, such as an API, a web p
 
 ## Event structure
 
-Nomen indexers should publish a single event per name. It will be a __parameterized replaceable__ event, per the [NIP-01](https://github.com/nostr-protocol/nips/blob/master/01.md) specification. When name data changers (e.g. new records or ownership transfers) then the event will be republished and replaced.
+Nomen indexers should publish a single event per name. It will be a __parameterized replaceable__ event, per the [NIP-01](https://github.com/nostr-protocol/nips/blob/master/01.md) specification. When name data changes (e.g. new records or ownership transfers) then the event will be republished and replaced.
 
 The fields to be aware of:
 
@@ -21,9 +21,9 @@ The `content` will be a serialized form of the following data:
 
 ```json
 {
-  "n": "indexed named, should match the d tag",
-  "pk": "hex-encoded pubkey of name's owner",
-  "r": {
+  "name": "indexed named, should match the d tag",
+  "pubkey": "hex-encoded pubkey of name's owner",
+  "records": {
     "KEY1": "VALUE1",
     "KEY2": "VALUE2"
   }
@@ -39,7 +39,7 @@ For an indexer with a web presence, such as the [Nomen Explorer](https://nomenex
 ```json
 {
   "indexer": {
-    "pk": "indexer's hex-encoded pubkey"
+    "pubkey": "indexer's hex-encoded pubkey"
   }
 }
 ```
