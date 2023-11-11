@@ -92,6 +92,8 @@ Names must match the following regular expression `[0-9a-z\-]{3,43}` and must be
 ## Test vectors
 
 ```yaml
+# Keys and OP_RETURNs are hex-encoded binary
+
 # Key data for vectors
 keys:
   - sk: 2a1a6fe815e69e09c95093ff04b7deee2182a56c55c8d4f07a3872a7f77208dc
@@ -133,6 +135,8 @@ names:
     valid: false
   - name: abcdefghijklmnopqrztuvwxyzabcdefghijklmnopqrztuvwxyz
     valid: false
+  - name: 123abc
+    valid: true
 ```
 
 ## Changes and updates

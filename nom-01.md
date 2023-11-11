@@ -58,12 +58,14 @@ Names must match the following regular expression `[0-9a-z\-]{3,43}` and must be
 ## Test vectors
 
 ```yaml
-# Key data for vectors
+# Keys and OP_RETURNs are hex-encoded binary
+
+# Key data for vectors (values hex-encoded)
 keys:
   sk: 2a1a6fe815e69e09c95093ff04b7deee2182a56c55c8d4f07a3872a7f77208dc
   pk: 60de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc18
 
-# On chains claims for testing OP_RETURN validity
+# On chains claims for testing OP_RETURN validity (OP_RETURN is hex-encoded)
 claims:
   - name: hello-world
     op_return: 4e4f4d0000e5401df4b4273968a1e7be2ef0acbcae6f61d53e73101e2983
@@ -82,6 +84,13 @@ names:
     valid: false
   - name: abcdefghijklmnopqrztuvwxyzabcdefghijklmnopqrztuvwxyz
     valid: false
+  - name: 123abc
+    valid: true
+
+# Test HASH-160 implementation
+hash160:
+  input: hello # bytestring
+  output: b6a9c8c230722b7c748331a8b450f05566dc7d0f
 ```
 
 ## Changes and updates
