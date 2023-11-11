@@ -89,6 +89,52 @@ While it is desirable to have a wide range of characters and languages be usable
 
 Names must match the following regular expression `[0-9a-z\-]{3,43}` and must be ignored by indexers otherwise.
 
+## Test vectors
+
+```yaml
+# Key data for vectors
+keys:
+  - sk: 2a1a6fe815e69e09c95093ff04b7deee2182a56c55c8d4f07a3872a7f77208dc
+    pk: 60de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc18
+  - sk: 1b435623bccbf4b9b3b43fc8275f4aade5f26f3602675d6c70c58afd8a465f1b
+    pk: 74301b9c5d30b764bca8d3eb4febb06862f558d292fde93b4a290d90850bac91
+
+# On chains claims for testing OP_RETURN validity
+claims:
+  - name: hello-world
+    type: create
+    pk: 60de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc18
+    op_return: 4e4f4d010060de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc1868656c6c6f2d776f726c64
+    valid: true
+  - name: hello-world
+    type: transfer
+    new_pk: 74301b9c5d30b764bca8d3eb4febb06862f558d292fde93b4a290d90850bac91
+    op_return: 4e4f4d010174301b9c5d30b764bca8d3eb4febb06862f558d292fde93b4a290d90850bac9168656c6c6f2d776f726c64
+    valid: true
+  - name: hello-world
+    type: signature
+    old_sk: 2a1a6fe815e69e09c95093ff04b7deee2182a56c55c8d4f07a3872a7f77208dc
+    new_pk: 74301b9c5d30b764bca8d3eb4febb06862f558d292fde93b4a290d90850bac91
+    op_return: 4e4f4d0102489e4e3ab29408da53733473156040a25e5a84cbca788c2b7143f971ead84192ae8bd8e4890cfabb08dca693875c28a1949ae0d13f5c6b08617e4fdc022bc751
+    valid: true
+  - name: ld
+    type: create
+    pk: 60de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc18
+    op_return: 4e4f4d010060de6fbc4a78209942c62706d904ff9592c2e856f219793f7f73e62fc33bfc186c64
+    valid: false
+
+# Checking name validity
+names:
+  - name: hello-world
+    valid: true
+  - name: hello!
+    valid: false
+  - name: ld
+    valid: false
+  - name: abcdefghijklmnopqrztuvwxyzabcdefghijklmnopqrztuvwxyz
+    valid: false
+```
+
 ## Changes and updates
 
 **2023-11-04**:
