@@ -39,9 +39,15 @@ For an indexer with a web presence, such as the [Nomen Explorer](https://nomenex
 ```json
 {
   "indexer": {
-    "pubkey": "indexer's hex-encoded pubkey"
+    "pubkey": "indexer's hex-encoded pubkey",
+    "relays": ["wss://relay.example.com"]
   }
 }
 ```
 
-Clients may choose to check this convenience to locate the pubkey to use when searching for relay-published indexes.
+Clients may choose to check this convenience to locate the pubkey to use when searching for relay-published indexes. Additionally, the indexer can list the "officially" supported relays.
+
+## Changes and updates
+
+**2023-11-21**:
+  - The "relays" key was added to the `.well-known/nomen.json` document.
